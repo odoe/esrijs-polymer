@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArcGIS JS API - Polymer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+    <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
+    <link href="http://js.arcgis.com/4.0beta1/esri/css/esri.css" rel="stylesheet">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <style>
+      html, body, #map {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #FFF;
+      overflow: hidden;
+    }
+
+    #viewDiv {
+      position: absolute;
+      right: 0;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    #measureDiv {
+      position: absolute;
+      z-index: 999;
+      top: 1em;
+      right: 1em;
+      height: 300px;
+      width: 300px;
+      padding: 1em;
+      background-color: rgba(229, 241, 249, 0.75);
+      border: #007AC2 2px solid;
+    }
+  </style>
+</head>
+<body>
+  <div id="viewDiv"></div>
+  <script>
+    var pathRX = new RegExp(/\/[^\/]+$/);
+    var locationPath = location.pathname.replace(pathRX, '');
+    var dojoConfig = {
+      selectorEngine: 'acme',
+      deps: ['app'],
+      packages: [{
+        name: 'app',
+        location: locationPath + 'app',
+        main: 'main'
+      }]
+    };
+  </script>
+  <script src="http://js.arcgis.com/4.0beta1/"></script>
+  <script>
+  </script>
+</body>
+</html>
