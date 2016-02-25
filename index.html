@@ -45,14 +45,11 @@
 <body>
   <div id="viewDiv"></div>
   <script>
-    var pathRX = new RegExp(/\/[^\/]+$/);
-    var locationPath = location.pathname.replace(pathRX, '');
-    var dojoConfig = {
-      selectorEngine: 'acme',
+    window.dojoConfig = {
       deps: ['app'],
       packages: [{
         name: 'app',
-        location: locationPath + 'dist/app',
+        location: window.location.pathname.replace(/\/[^\/]+$/, '') + 'dist/app',
         main: 'main'
       }]
     };
