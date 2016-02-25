@@ -4,15 +4,11 @@ import Component from './components/ViewProxy';
 // Controller links Model and view
 class Controller {
   constructor(extent) {
-    this.model = new Model({ extent: extent });
+    this.model = new Model({ extent });
 
-    this.view = new Component({
-      position: 'topright',
-      xmin: this.model.extent.xmin,
-      ymin: this.model.extent.ymin,
-      xmax: this.model.extent.xmax,
-      ymax: this.model.extent.ymax
-    });
+    let { xmin, ymin, xmax, ymax } = this.model.extent;
+
+    this.view = new Component({ position: 'topright', xmin, ymin, xmax, ymax });
 
     this.model.watch('extent', (val) => {
       this.view.update({

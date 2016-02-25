@@ -2,14 +2,14 @@ class Component {
 
   constructor(data) {
     // add import link
-    var href = require.toUrl('app/views/PolymerView/components/ExtentInfo.html');
-    var node = document.querySelector('.esriTop.esriRight');
-    var link = document.createElement('link');
+    let href = require.toUrl('app/views/PolymerView/components/ExtentInfo.html');
+    let node = document.querySelector('.esri-ui-top-right.esri-ui-corner');
+    let link = document.createElement('link');
     link.setAttribute('href', href);
     link.setAttribute('rel', 'import');
     document.body.appendChild(link);
 
-    var el = document.createElement('extent-info');
+    let el = document.createElement('extent-info');
     node.appendChild(el);
     el.setAttribute('xmin', data.xmin)
     el.setAttribute('ymin', data.ymin)
@@ -19,7 +19,7 @@ class Component {
   }
 
   update(data) {
-    var el = this.element;
+    let el = this.element;
     el.setAttribute('xmin', data.xmin)
     el.setAttribute('ymin', data.ymin)
     el.setAttribute('xmax', data.xmax)

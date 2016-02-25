@@ -16,6 +16,6 @@ let view = new MapView({
 view.then(() => {
   let pctrl = new PolymerController(view.extent);
   view.watch('extent', function(val) {
-    pctrl.model.set('extent', val.toJSON());
+    pctrl.model.extent = val.toJSON();
   });
 });
